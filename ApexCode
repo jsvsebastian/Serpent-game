@@ -1,0 +1,29 @@
+public class Principal {
+    public static list<Integer> empezar(){
+        String empezar ='si'; 
+        Integer position = 1;
+        Integer IntradomNumber=Integer.valueof((Math.random()*6) + 1);
+        list<Integer> exp = new List<Integer>{3,6,9,10,14,19,24,22};
+        list<Integer> exp1 = new List<Integer>{11,17,18,12,4,8,16,20};
+        list<Integer> ValidationPosition = new List<Integer>();
+        list<Integer> ValidationExp = new List<Integer>();
+        list<Integer> ValidationRandom = new List<Integer>();
+        while (empezar == 'si'){
+            Integer random=Integer.valueof((Math.random()*6) + 1);
+            position = position + random;
+            if (exp.contains(position)){
+                Integer point_number=exp.indexOf(position);
+                position=exp1.get(point_number);
+                               
+            }  
+            ValidationPosition.add(position);
+            ValidationPosition.add(random);
+            system.debug('Dado Arroja ' + random+ '  ' + 'Jugador Avanza a casilla '+ position);
+            if (position>=25){
+                system.debug('Ganaste Campeon');
+                empezar= 'no';        
+            }    
+        }        
+    return ValidationPosition;
+    }
+}
