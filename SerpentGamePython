@@ -1,0 +1,25 @@
+from random import *
+
+x=input("Deseas empezar el juego: ")
+a=random()
+exp=[3,6,9,10,14,19,24,22] # Aqui se consignan las excepciones para subida y bajada de cada casilla
+NewExp=[11,17,18,12,4,8,16,20] # En el mismo orden en que esta cada excepcion se consigna a la casilla que asciende o desciende el jugador
+
+def random():
+  return (randint(1,6))
+
+#funcion randomica de numeros entre 1 a 6 solo arroja numeros enteros
+
+position=1 #Se inicia en la posicion 1
+new_position=1 #Se crea un funcion q contiene las nuevas posiciones
+while (x=="si"): # bucle q funciona mientras el jugador no haya completado el juego
+  a=random() # se llama la funcion random
+  position+=a # se le adiciona el valor del dado a
+  if position in exp : #para detectar  si la casilla donde cae el jugador contiene una excepcion
+    position=NewExp[exp.index(position)] #si hay una excepcion eleva al resultado a la nueva postion
+  new_position=0 #reincia el calor de la nueva posicion
+
+  print("Dado Arroja " + str(a) + "  " + "Jugador Avanza:  " +str(position) ) #imprime los valores
+  if position>=25: # si el jugador llega a la casilla 25 o supera esta gana el juego
+    print("::: GANASTE CAMPEON :::")
+    break
