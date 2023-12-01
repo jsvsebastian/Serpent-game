@@ -1,0 +1,31 @@
+@IsTest
+private class myClass{
+    @IsTest
+    static void myTest(){
+        list<Integer> exp = Principal.empezar();
+        system.debug(exp);
+        Integer position = 1; 
+        list<Integer> Tocompare1 = new List<Integer>();
+        list<Integer> Tocompare2 = new List<Integer>();
+        list<Integer> Condition = new List<Integer>{3,6,9,10,14,19,24,22};
+        list<Integer> ResultCondition = new List<Integer>{11,17,18,12,4,8,16,20};
+        for (Integer x= 0; x<exp.size();x++){
+            Integer ExpectedPosition = exp[x];
+            Integer ExpectedRandom = exp[x+1];  
+            position=position+ExpectedRandom;
+            if (Condition.contains(position)){
+                Integer point_number=exp.indexOf(position);
+                position=ResultCondition.get(point_number);        
+            }
+            Tocompare1.add(position);
+            tocompare2.add(ExpectedPosition);  
+        }
+        Boolean equality = Tocompare1.equals(Tocompare2);
+        if (equality){
+            System.debug('ESTA CORRECTO');
+        }
+        else{
+            System.debug('ESTA MAL');
+        }         
+   }    
+}
